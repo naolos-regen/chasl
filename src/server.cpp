@@ -6,12 +6,12 @@
 
 int main()
 {
-	Server server{};
+	Server server(8080);
 
-	if (!server.run())
+	server.connect_client();
+	while (server.is_running())
 	{
-		return (1);
+		server.run();
 	}
-
 	return (0);
 }
